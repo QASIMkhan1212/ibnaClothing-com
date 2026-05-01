@@ -14,9 +14,7 @@ export default function Navbar() {
       <nav>
         <div className="nav-left">
           <Link href="/shop?cat=Men">Men</Link>
-          <Link href="/shop?cat=Women">Women</Link>
           <Link href="/shop?cat=New In">New In</Link>
-          <Link href="/shop?cat=Sale">Sale</Link>
         </div>
         <button className={`hamburger ${open ? 'open' : ''}`} onClick={toggle} aria-label="Menu">
           <span></span><span></span><span></span>
@@ -35,9 +33,7 @@ export default function Navbar() {
       </nav>
       <div className={`mobile-menu ${open ? 'open' : ''}`}>
         <Link href="/shop?cat=Men" onClick={toggle}>Men</Link>
-        <Link href="/shop?cat=Women" onClick={toggle}>Women</Link>
         <Link href="/shop?cat=New In" onClick={toggle}>New In</Link>
-        <Link href="/shop?cat=Sale" onClick={toggle}>Sale</Link>
         <Link href="/search" onClick={toggle}>Search</Link>
         <Link href="/account" onClick={toggle}>Account</Link>
         <Link href="/wishlist" onClick={toggle}>Wishlist</Link>

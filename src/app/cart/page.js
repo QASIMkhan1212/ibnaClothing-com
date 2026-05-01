@@ -27,6 +27,7 @@ export default function CartPage() {
                 <div className="cart-item-info">
                   <div className="cart-item-name">{item.name}</div>
                   <div className="cart-item-meta">Size: {item.size} | Colour: {item.color}</div>
+                  <div className="cart-item-price-mobile">PKR {(item.price*item.qty).toLocaleString()}</div>
                   <div className="cart-qty" style={{marginTop:10}}>
                     <button onClick={() => changeQty(idx,-1)}>−</button>
                     <span>{item.qty}</span>
