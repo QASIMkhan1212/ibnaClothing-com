@@ -11,10 +11,9 @@ function ShopContent() {
   const [cat, setCat] = useState(['T-Shirts','Polo','Shirts','Denim'].includes(initialCat) ? initialCat : 'All');
   const [price, setPrice] = useState('all');
   const [sort, setSort] = useState('default');
-  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filtered = useMemo(() => {
-    let r = PRODUCTS.filter(p => {
+    let r = [...PRODUCTS].filter(p => {
       const catOk = cat === 'All' || p.cat === cat;
       let priceOk = true;
       if (price === 'under2500') priceOk = p.price < 2500;
@@ -29,51 +28,67 @@ function ShopContent() {
   }, [cat, price, sort]);
 
   return (
-    <div>
+    <div className="shop-page">
       <div className="page-hero">
-        <h1>{initialCat === 'All' ? 'All Products' : initialCat}</h1>
+        <h1>{cat === 'All' ? 'Collection' : cat}</h1>
         <p>Premium quality menswear crafted in Pakistan</p>
       </div>
-      <div className="breadcrumb">
-        <Link href="/"><span>Home</span></Link>
-        <span className="sep">/</span><span>{initialCat}</span>
-      </div>
-      <div className="shop-layout" style={{marginTop:24}}>
-        <div className={`shop-filters ${filtersOpen?'open':''}`}>
-          <div className="filter-title">Category</div>
-          <div className="filter-opts">
-            {['All','T-Shirts','Polo','Shirts','Denim'].map(c => (
-              <label key={c} className="filter-opt">
-                <input type="radio" name="cat" checked={cat===c} onChange={() => setCat(c)} /> {c}
-              </label>
-            ))}
+
+      <div className="shop-container">
+        <div className="shop-toolbar">
+          <div className="toolbar-left">
+            <div className="breadcrumb-inline">
+              <Link href="/">Home</Link>
+              <span className="sep">/</span>
+              <span>Shop</span>
+            </div>
+            <div className="shop-count">{filtered.length} Items</div>
           </div>
-          <div className="filter-title">Price Range</div>
-          <div className="filter-opts">
-            {[['all','All Prices'],['under2500','Under PKR 2,500'],['2500to3500','PKR 2,500–3,500'],['above3500','Above PKR 3,500']].map(([v,l]) => (
-              <label key={v} className="filter-opt">
-                <input type="radio" name="price" checked={price===v} onChange={() => setPrice(v)} /> {l}
-              </label>
-            ))}
+
+          <div className="toolbar-right">
+            <div className="filter-group-inline">
+              <select value={cat} onChange={(e) => setCat(e.target.value)} className="shop-select">
+                <option value="All">All Categories</option>
+                <option value="T-Shirts">T-Shirts</option>
+                <option value="Polo">Polo</option>
+                <option value="Shirts">Shirts</option>
+                <option value="Denim">Denim</option>
+              </select>
+
+              <select value={price} onChange={(e) => setPrice(e.target.value)} className="shop-select">
+                <option value="all">All Prices</option>
+                <option value="under2500">Under PKR 2,500</option>
+                <option value="2500to3500">PKR 2,500 – 3,500</option>
+                <option value="above3500">Above PKR 3,500</option>
+              </select>
+
+              <select value={sort} onChange={(e) => setSort(e.target.value)} className="shop-select">
+                <option value="default">Sort By: Featured</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+              </select>
+
+              {(cat !== 'All' || price !== 'all' || sort !== 'default') && (
+                <button className="clear-link" onClick={() => { setCat('All'); setPrice('all'); setSort('default'); }}>
+                  Reset
+                </button>
+              )}
+            </div>
           </div>
-          <div className="filter-title">Sort By</div>
-          <div className="filter-opts">
-            {[['default','Featured'],['priceLow','Price: Low to High'],['priceHigh','Price: High to Low'],['newest','Newest First']].map(([v,l]) => (
-              <label key={v} className="filter-opt">
-                <input type="radio" name="sort" checked={sort===v} onChange={() => setSort(v)} /> {l}
-              </label>
-            ))}
-          </div>
-          <button className="filter-btn" onClick={() => { setCat('All'); setPrice('all'); setSort('default'); }}>Clear Filters</button>
         </div>
-        <div className="shop-products">
-          <button className="filter-toggle-btn" onClick={() => setFiltersOpen(!filtersOpen)}>☰ Filter &amp; Sort</button>
-          <div className="shop-top">
-            <div className="shop-count">Showing {filtered.length} product{filtered.length===1?'':'s'}</div>
-          </div>
-          <div className="shop-grid">
-            {filtered.map(p => <ProductCard key={p.id} product={p} />)}
-          </div>
+
+        <div className="shop-grid-main">
+          {filtered.length > 0 ? (
+            <div className="shop-grid">
+              {filtered.map(p => <ProductCard key={p.id} product={p} />)}
+            </div>
+          ) : (
+            <div className="no-results">
+              <p>No products match your filters.</p>
+              <button className="btn-outline" onClick={() => { setCat('All'); setPrice('all'); setSort('default'); }}>Clear All Filters</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -81,5 +96,9 @@ function ShopContent() {
 }
 
 export default function ShopPage() {
-  return <Suspense fallback={<div>Loading...</div>}><ShopContent /></Suspense>;
+  return (
+    <Suspense fallback={<div className="loading">Loading...</div>}>
+      <ShopContent />
+    </Suspense>
+  );
 }

@@ -22,7 +22,9 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <CartToast />
           <div className="ann">
-            Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live &nbsp;|&nbsp; @ibnaclothing.12
+            <div className="ann-track">
+              <span>Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live &nbsp;|&nbsp; Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live &nbsp;|&nbsp; Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live</span>
+            </div>
           </div>
           <Navbar />
           {children}

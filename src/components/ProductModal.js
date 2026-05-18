@@ -6,6 +6,7 @@ import { COLORS } from '@/data/products';
 export default function ProductModal({ product, onClose }) {
   const [size, setSize] = useState('S');
   const [color, setColor] = useState(product.color);
+  const [selectedImg, setSelectedImg] = useState(0);
   const { addToCart, addToWishlist } = useCart();
 
   useEffect(() => {
@@ -23,7 +24,18 @@ export default function ProductModal({ product, onClose }) {
       <div className="modal">
         <div className="modal-imgs">
           <button className="modal-close" onClick={onClose}>✕</button>
-          <img className="modal-main-img" src={product.img} alt={product.name} />
+          <img className="modal-main-img" src={product.images[selectedImg]} alt={product.name} />
+          <div className="modal-thumbs">
+            {product.images.map((img, i) => (
+              <img 
+                key={i} 
+                src={img} 
+                className={`modal-thumb ${selectedImg === i ? 'active' : ''}`} 
+                onClick={() => setSelectedImg(i)} 
+                alt={`${product.name} view ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
         <div className="modal-info">
           {product.badge && <span className="modal-badge">{product.badge}</span>}

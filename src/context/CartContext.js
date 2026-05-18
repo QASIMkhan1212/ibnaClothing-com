@@ -29,7 +29,7 @@ export function CartProvider({ children }) {
       if (existing) {
         return prev.map(i => i.id === product.id && i.size === size ? {...i, qty: i.qty + 1} : i);
       }
-      return [...prev, {id: product.id, name: product.name, price: product.price, img: product.img, size, qty: 1, color: product.color}];
+      return [...prev, {id: product.id, name: product.name, price: product.price, img: product.images[0], size, qty: 1, color: product.color}];
     });
     showToast(`${product.name} added to cart`);
   };

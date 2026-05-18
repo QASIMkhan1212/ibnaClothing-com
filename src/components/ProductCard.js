@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
     <>
       <div className="prod-card" onClick={() => setOpen(true)}>
         <div className="prod-img">
-          <img src={product.img} alt={product.name} loading="lazy" />
+          <img src={product.images[0]} alt={product.name} loading="lazy" />
           {product.badge && <span className="prod-badge">{product.badge}</span>}
         </div>
         <div className="prod-info">
