@@ -152,45 +152,61 @@ export default function CheckoutPage() {
               <p className="section-note">Select one payment option below and follow the instructions to complete the order.</p>
               <div className="payment-grid">
                 {[
-                  { key: 'Cash on Delivery', title: 'Cash on Delivery', tag: 'Pay when delivered', info: 'Fast and easy. Delivery in Islamabad only.' },
-                  { key: 'JazzCash', title: 'JazzCash', tag: 'Local wallet', info: 'Send payment to 03406915833, Nabeel Ahmad.' },
-                  { key: 'Easypaisa', title: 'EasyPaisa', tag: 'Local wallet', info: 'Send payment to 03406915833, Nabeel Ahmad.' },
-                  { key: 'Bank Transfer', title: 'Bank Transfer', tag: 'Allied Bank', info: 'Use IBAN PK77ABPA0010077873920014, Nabeel Ahmad.' }
+                  { key: 'Cash on Delivery', title: 'Cash on Delivery', tag: 'Pay at Door', info: 'Fast and easy. Delivery in Islamabad only.', icon: '🚚' },
+                  { key: 'JazzCash', title: 'JazzCash', tag: 'Local Wallet', info: 'Send payment to 03406915833, Nabeel Ahmad.', icon: '📱' },
+                  { key: 'Easypaisa', title: 'EasyPaisa', tag: 'Local Wallet', info: 'Send payment to 03406915833, Nabeel Ahmad.', icon: '💸' },
+                  { key: 'Bank Transfer', title: 'Bank Transfer', tag: 'Allied Bank', info: 'Use IBAN PK77ABPA0010077873920014, Nabeel Ahmad.', icon: '🏛️' }
                 ].map((option) => (
                   <button key={option.key} type="button" className={`payment-card ${formData.payment===option.key ? 'selected' : ''}`} onClick={() => setFormData(prev => ({ ...prev, payment: option.key }))}>
                     <div className="payment-card-header">
-                      <span>{option.title}</span>
-                      <small>{option.tag}</small>
+                      <div className="payment-card-title">
+                        <span className="pay-icon">{option.icon}</span>
+                        <span>{option.title}</span>
+                      </div>
+                      <div className={`pay-check ${formData.payment===option.key ? 'active' : ''}`}></div>
                     </div>
-                    <p>{option.info}</p>
-                    {formData.payment===option.key && <div className="card-selected">Selected</div>}
+                    <p className="pay-tag">{option.tag}</p>
+                    <p className="pay-info">{option.info}</p>
                   </button>
                 ))}
               </div>
               <div className="payment-details-box">
                 {formData.payment === 'Cash on Delivery' && (
-                  <>
-                    <h4>Cash on Delivery</h4>
-                    <p>Payment is collected when your order arrives. Please keep your phone available for delivery updates.</p>
-                  </>
+                  <div className="pay-method-info">
+                    <div className="pay-method-hdr"><h4>Cash on Delivery Instructions</h4></div>
+                    <p>Please have the exact amount ready for the delivery rider. COD is currently only available for orders within <strong>Islamabad</strong>. For other cities, please use a digital payment method.</p>
+                  </div>
                 )}
                 {formData.payment === 'JazzCash' && (
-                  <>
-                    <h4>JazzCash / EasyPaisa Payment</h4>
-                    <p>Please send your payment to 03406915833 (Nabeel Ahmad) and enter the transaction reference below.</p>
-                  </>
+                  <div className="pay-method-info">
+                    <div className="pay-method-hdr"><h4>JazzCash / EasyPaisa Payment</h4></div>
+                    <div className="pay-acc-details">
+                      <div className="acc-row"><span>Account Name:</span> <strong>Nabeel Ahmad</strong></div>
+                      <div className="acc-row"><span>Account Number:</span> <strong>0340 6915833</strong></div>
+                    </div>
+                    <p className="pay-note">Please enter the Transaction ID below after sending the payment.</p>
+                  </div>
                 )}
                 {formData.payment === 'Easypaisa' && (
-                  <>
-                    <h4>EasyPaisa / JazzCash Payment</h4>
-                    <p>Please send your payment to 03406915833 (Nabeel Ahmad) and enter the transaction reference below.</p>
-                  </>
+                  <div className="pay-method-info">
+                    <div className="pay-method-hdr"><h4>EasyPaisa / JazzCash Payment</h4></div>
+                    <div className="pay-acc-details">
+                      <div className="acc-row"><span>Account Name:</span> <strong>Nabeel Ahmad</strong></div>
+                      <div className="acc-row"><span>Account Number:</span> <strong>0340 6915833</strong></div>
+                    </div>
+                    <p className="pay-note">Please enter the Transaction ID below after sending the payment.</p>
+                  </div>
                 )}
                 {formData.payment === 'Bank Transfer' && (
-                  <>
-                    <h4>Bank Transfer</h4>
-                    <p>Transfer the amount to Allied Bank IBAN PK77ABPA0010077873920014 (Nabeel Ahmad). Enter the reference below.</p>
-                  </>
+                  <div className="pay-method-info">
+                    <div className="pay-method-hdr"><h4>Bank Account Details</h4></div>
+                    <div className="pay-acc-details">
+                      <div className="acc-row"><span>Bank:</span> <strong>Allied Bank (ABL)</strong></div>
+                      <div className="acc-row"><span>Account Name:</span> <strong>Nabeel Ahmad</strong></div>
+                      <div className="acc-row"><span>IBAN:</span> <strong>PK77 ABPA 0010 0778 7392 0014</strong></div>
+                    </div>
+                    <p className="pay-note">Please enter your transaction reference below for verification.</p>
+                  </div>
                 )}
               </div>
               {formData.payment !== 'Cash on Delivery' && (
