@@ -53,6 +53,8 @@ export default function CheckoutPage() {
 
     setLoading(true);
     try {
+      /* 
+      // Temporarily disabled backend call until credentials are setup
       const payload = { 
         user: {
           name: `${formData.fname} ${formData.lname}`,
@@ -75,6 +77,10 @@ export default function CheckoutPage() {
       if (!res.ok) {
         throw new Error('Failed to save order to Google Sheets');
       }
+      */
+
+      // Simulated success delay
+      await new Promise(resolve => setTimeout(resolve, 800));
 
       const orderNum = '#IBNA-' + (Math.floor(Math.random()*9000)+1000);
       const orderStatus = formData.payment === 'Cash on Delivery' ? 'COD order placed - Payment on delivery' : 'Payment proof received - Pending verification';
