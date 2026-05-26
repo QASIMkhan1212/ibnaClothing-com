@@ -744,14 +744,14 @@ nav {
   cursor: pointer;
 }
 
-/* ── Must Haves ── */
-.must-sec {
+/* ── Must Haves & Trending ── */
+.must-sec, .trending-sec {
   background: var(--cream);
   padding: 60px 40px;
   margin-bottom: 60px;
 }
 
-.must-hdr {
+.must-hdr, .trending-hdr {
   display: flex;
   align-items: baseline;
   justify-content: space-between;

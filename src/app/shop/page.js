@@ -8,7 +8,7 @@ import Link from 'next/link';
 function ShopContent() {
   const params = useSearchParams();
   const initialCat = params.get('cat') || 'All';
-  const [cat, setCat] = useState(['T-Shirts','Polo','Shirts','Denim'].includes(initialCat) ? initialCat : 'All');
+  const [cat, setCat] = useState(['T-Shirts','Polo','Shirts','Denim','New In'].includes(initialCat) ? initialCat : 'All');
   const [price, setPrice] = useState('all');
   const [sort, setSort] = useState('default');
 
@@ -53,6 +53,7 @@ function ShopContent() {
                 <option value="Polo">Polo</option>
                 <option value="Shirts">Shirts</option>
                 <option value="Denim">Denim</option>
+                <option value="New In">New In</option>
               </select>
 
               <select value={price} onChange={(e) => setPrice(e.target.value)} className="shop-select">

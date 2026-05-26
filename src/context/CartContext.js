@@ -60,7 +60,7 @@ export function CartProvider({ children }) {
     });
   };
 
-  const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+  const cartCount = new Set(cart.map(i => i.id)).size;
 
   return (
     <CartContext.Provider value={{ cart, wishlist, cartCount, addToCart, changeQty, removeFromCart, clearCart, addToWishlist, toast, showToast }}>

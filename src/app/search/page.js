@@ -28,7 +28,7 @@ export default function SearchPage() {
       {q && (
         <div className="search-results-sec">
           {results.length === 0 ? (
-            <div style={{textAlign:'center',padding:40,color:'var(--gray-mid)'}}>No products found for "{q}"</div>
+            <div style={{textAlign:'center',padding:40,color:'var(--gray-mid)'}}>No products found for &quot;{q}&quot;</div>
           ) : (
             <div className="prod-grid" style={{padding:0}}>
               {results.map(p => <ProductCard key={p.id} product={p} />)}

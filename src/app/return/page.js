@@ -12,25 +12,25 @@ export default function ReturnsPage() {
       </div>
       <div className="returns-content">
         <h2>Our Return Policy</h2>
-        <p>At IBNA Clothing, we want you to love everything you buy. If something isn't right, we're here to help. You can return most items within <strong>7 days</strong> of delivery for a full refund or exchange.</p>
+        <p>At IBNA Clothing, we want you to love everything you buy. If something isn&apos;t right, we&apos;re here to help. You can return most items within <strong>7 days</strong> of delivery for a full refund or exchange.</p>
         <div className="highlight">📦 Returns are accepted within 7 days of delivery. Items must be unworn, unwashed, and in original packaging with tags attached.</div>
 
         <h2>How to Return</h2>
         <ul>
           <li>Contact us via Instagram <strong>@ibnaclothing.12</strong> or WhatsApp with your order number.</li>
-          <li>We'll arrange a pickup or provide return drop-off details.</li>
+          <li>We&apos;ll arrange a pickup or provide return drop-off details.</li>
           <li>Once we receive and inspect the item, your refund or exchange will be processed within 3–5 business days.</li>
         </ul>
 
         <h2>Non-Returnable Items</h2>
         <ul>
-          <li>Items marked as "Final Sale" or "Last Chance"</li>
+          <li>Items marked as &quot;Final Sale&quot; or &quot;Last Chance&quot;</li>
           <li>Items that have been worn, washed, or damaged</li>
           <li>Items without original tags or packaging</li>
         </ul>
 
         <h2>Exchanges</h2>
-        <p>Want a different size or colour? We're happy to exchange! Just follow the return process and mention the item you'd like instead.</p>
+        <p>Want a different size or colour? We&apos;re happy to exchange! Just follow the return process and mention the item you&apos;d like instead.</p>
 
         <h2>Refund Timeline</h2>
         <p>Refunds are issued to your original payment method within 3–5 business days after we receive your return.</p>

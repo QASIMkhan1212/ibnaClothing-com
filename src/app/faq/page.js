@@ -14,11 +14,11 @@ export default function FaqsPage() {
       <div className="returns-content">
         <h2>Ordering</h2>
         <p><strong>How do I place an order?</strong><br />Browse our products, add items to your cart, and proceed to checkout. We accept Cash on Delivery (COD), JazzCash, and Easypaisa.</p>
-        <p><strong>Can I change my order after placing it?</strong><br />Contact us within 2 hours of placing your order and we'll do our best to accommodate changes.</p>
+        <p><strong>Can I change my order after placing it?</strong><br />Contact us within 2 hours of placing your order and we&apos;ll do our best to accommodate changes.</p>
 
         <h2>Shipping</h2>
-        <p><strong>How long does delivery take?</strong><br />Orders are delivered within 3–5 business days across Pakistan. Karachi orders may arrive sooner.</p>
-        <p><strong>Is shipping free?</strong><br />Yes! Free delivery on all orders above PKR 5,000. A flat PKR 200 charge applies for orders below that.</p>
+        <p><strong>How long does delivery take?</strong><br />Orders are delivered within 2–3 business days in Islamabad only.</p>
+        <p><strong>Is shipping free?</strong><br />No. A flat shipping charge of PKR 250 applies for all Islamabad orders.</p>
 
         <h2>Returns</h2>
         <p>

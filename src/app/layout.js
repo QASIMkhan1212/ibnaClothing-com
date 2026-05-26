@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           <CartToast />
           <div className="ann">
             <div className="ann-track">
-              <span>Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live &nbsp;|&nbsp; Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live &nbsp;|&nbsp; Free delivery on orders over PKR 5,000 &nbsp;|&nbsp; Summer Edit Now Live</span>
+              <span>Shipping in Islamabad only | Flat delivery PKR 250 | Summer Edit Now Live</span>
             </div>
           </div>
           <Navbar />

@@ -7,13 +7,13 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    showToast("Message sent! We'll reply shortly.");
+    showToast("Message sent! We&apos;ll reply shortly.");
     e.target.reset();
   };
 
   return (
     <div>
-      <div className="page-hero"><h1>Contact Us</h1><p>We're here to help</p></div>
+      <div className="page-hero"><h1>Contact Us</h1><p>We&apos;re here to help</p></div>
       <div className="breadcrumb">
         <Link href="/"><span>Home</span></Link>
         <span className="sep">/</span><span>Contact</span>
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="contact-layout">
         <div className="contact-info">
           <h2>Get in Touch</h2>
-          <p>Have a question about sizing, an order, or just want to say hello? We'd love to hear from you. We typically respond within 24 hours.</p>
+          <p>Have a question about sizing, an order, or just want to say hello? We&apos;d love to hear from you. We typically respond within 24 hours.</p>
           <div className="contact-detail">
             <div className="contact-item">
               <span className="contact-icon">📱</span>

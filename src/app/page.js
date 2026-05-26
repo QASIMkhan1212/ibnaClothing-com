@@ -18,9 +18,9 @@ export default function Home() {
     return () => clearInterval(t);
   }, []);
 
-  const newArrivals = PRODUCTS.filter(p => p.badge === 'New').slice(0, 4);
-  const mustHaves = PRODUCTS.slice(0, 4);
-  const trending = PRODUCTS.filter(p => p.badge === 'Trending' || p.badge === 'New').slice(0, 4);
+  const newArrivals = PRODUCTS.filter(p => p.badge === 'New').slice(0, 8);
+  const mustHaves = PRODUCTS.slice(0, 8);
+  const trending = PRODUCTS.filter(p => p.badge === 'Trending' || p.badge === 'New').slice(0, 8);
 
   return (
     <div>
@@ -64,7 +64,7 @@ export default function Home() {
       </div>
 
       <div className="trending-sec">
-        <div className="sec-hdr" style={{padding:'0 0 28px'}}>
+        <div className="sec-hdr">
           <div className="sec-title">New &amp; Trending</div>
           <Link href="/shop?cat=New In" className="view-all">View All →</Link>
         </div>
